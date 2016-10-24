@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:echo="http://www.immd.be/schemas/echo" targetNamespace="http://www.immd.be/schemas/echo">
+  <xs:import namespace="http://purl.org/dc/terms/"
+    schemaLocation="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
+  <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd"/>
+  <xs:element name="echo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="leerobject" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <!-- identificatie -->
+              <xs:element ref="dc:identifier" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Unieke code of nummer waarmee het leerobject wordt
+                    aangeduid.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="aggregationLevel" type="echo:aggregationLevelTypes">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Geeft onderscheid tussen enkelvoudig object, set
+                    of collectie.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="objectName" type="echo:concept" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Een term die vorm, de functie of het type object
+                    aanduidt. Gebruik bij voorkeur een standaard woordenlijst. Door toevoeging van
+                    het attribuut Vocabulary kan een verwezen worden naar een externe lijst (bv.
+                    AAT). Door toevoeging van het attribuut identifier kan verwezen worden naar het
+                    concept in de externe vocabulary (bv. 300012567). Door toevoeging van een het
+                    attribuut URI middels een url naar het concept van een online waardenlijst
+                    verwezen worden.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="category" type="echo:concept" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Categorie waartoe het object behoort.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element ref="dcterms:isPartOf" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Collectie waarvan het leerobject deeluitmaakt.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element ref="dc:title" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Naam waarmee het leerobject wordt
+                    aangeduid.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element ref="dc:description" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Een beschrijving van het
+                    leerobject.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element ref="dc:language" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Taal van de inhoud van het
+                    leerobject.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element ref="dc:subject" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Onderwerp waarop de inhoud van het leerobject
+                    betrekking heeft.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="application" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Beschrijving van de manier waarop het leerobject
+                    wordt of werd gebruikt. </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="numberOfComponents" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Aantal componenten waaruit het leerobject bestaat. Per
+                    component kan een afzonderlijke groep van klasse Inhoud worden gecreëerd.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="componentDescription" type="echo:componentDescriptionType" minOccurs="0"
+                maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Materiele beschrijving van collectie, object of
+                    onderdelen.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="keyword" type="echo:keywordType" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Toegevoegde trefwoorden. De aard van het trefwoord
+                    kan beschreven worden in een attribuut (bv. "kleur")</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!-- oorsprong -->
+              <xs:element ref="dc:creator" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl"/>
+                </xs:annotation>
+              </xs:element>
+              <xs:element ref="dc:contributor" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl"/>
+                </xs:annotation>
+              </xs:element>
+              <xs:element ref="dcterms:created" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl"/>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="productionPlace" type="echo:concept" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Naam van plaats of land waar het object werd
+                    geproduceerd. </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="acquisitionSource" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Naam van eigenaar van wie het object werd
+                    verworven. </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="acquisitionDate" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Datum waarop het object werd verworven.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="acquisitionMethod" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Verwervingsmethode, zoals aankoop, ruil,
+                    schenking. </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="originNote" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Aanvullende gegevens bij oosrpong en verwerving
+                    van het leerobject</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!-- educatieve toepassing -->
+              <xs:element name="educationalUse" type="echo:educationalUseType" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">
+                    Deze klasse bevat gegevens met betrekking tot educatieve toepassingen van het leerobject.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <!-- toegang en voorwaarden-->
+              <xs:element ref="dc:publisher" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Persoon of Organisatie die het leerobject
+                    beschikbaar stelt </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="accessConditions" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Voorwaarden mbt de toegang van dit leerobject
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="costs" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Kosten verbonden aan het raadplegen van het
+                    leerobject. </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="handling" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl"/>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="safetyPrecautions" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl"/>
+                </xs:annotation>
+              </xs:element>
+              <xs:element ref="dc:rights" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="nl">Auteursrechterlijke of andere beperkingen die
+                    betrekking hebben op het gebruik als leerobject </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="location" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Plaats waar het leerobject wordt bewaard.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="concept">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="identifier" use="optional" type="xs:string"/>
+        <xs:attribute name="vocabulary" use="optional" type="xs:string"/>
+        <xs:attribute name="url" use="optional" type="xs:anyURI"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="keywordType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="keywordType" use="optional" type="xs:string"/>
+        <xs:attribute name="identifier" use="optional" type="xs:string"/>
+        <xs:attribute name="vocabulary" use="optional" type="xs:string"/>
+        <xs:attribute name="url" use="optional" type="xs:anyURI"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="componentDescriptionType">
+    <xs:sequence>
+      <xs:element name="component" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">Korte beschrijving van de component van het leerobject.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="material" type="echo:concept" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">Term die het materiaal aanduidt waaruit het leerobject is
+            vervaardigd. Gebruik bij voorkeur een lijst met vaste waarden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="materialDescription" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">Beschrijving van de materiële aspecten van het leerobject,
+            zoals gebruikte materialen en technieken of opschriften.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="technique" type="echo:concept" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl"/>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="dcterms:extent" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">Omvang van het leerobject in grootte of
+            aantallen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="condition" type="echo:conditionTypes" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl"/>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="conditionNote" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">Beschrijvning van de toestand van het
+            object</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contextType">
+    <xs:sequence>
+      <xs:element name="contextualObjectType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">Aard van het contextueel document</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="contextualObjectID" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">
+            Identificatiecode van het contextueel document.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="contextualObjectName" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">
+            Titel of benaming van het contextueel document.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="contextualObjectDescription">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">
+            Beschrijving, korte inhoud of toelichting met betrekking tot het contextueel docu-ment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="contextualObjectLocation" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">
+            Locatie van hent cotextueel document, zoals plaatskenmerk.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="contextualObjectURL" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">
+            URL van het contextueel document.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="educationalUseType">
+    <xs:sequence>
+      <xs:element name="endUserRole" type="echo:endUserRoleTypes" minOccurs="0"
+        maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">De gebruiker of gebruikers voor wie de educatieve
+            content voornamelijk bedoeld is of zijn. </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="age" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl"/>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="dcterms:educationLevel" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">Type (niveau, aard) van onderwijs of educatie
+            waarin gebruik van dit leerobject geschikt is.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="skills" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">Vaardigheden die met het leerobject
+            bereikt/geoefend kunnen worden</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="educationNote" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">Toelichting over de wijze waarop dit leerobject
+            kan worden gebruikt als leerobject </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="interactionLevel" type="echo:interactionLevelTypes" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="nl">Mate van interactie die met leerobject toegestaan
+            is. De lijst is gradueel: wanneer bewerken toegestaan is, impliceert dit dat ook
+            manipuleren en bekijken toegestaan is.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="date">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="start" use="optional" type="xs:date"/>
+        <xs:attribute name="end" use="optional" type="xs:date"/>
+        <xs:attribute name="note" use="optional" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="conditionTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="goed"/>
+      <xs:enumeration value="matig"/>
+      <xs:enumeration value="slecht"/>
+      <xs:enumeration value=""/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="aggregationLevelTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="object">
+        <xs:annotation>
+          <xs:documentation>Te gebruiken voor een enkelvoudig object</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="set">
+        <xs:annotation>
+          <xs:documentation>Te gebruiken voor een reeks objecten die intrinsiek een geheel vormen
+            (bijvoorbeeld een reeks onderdelen van een machine).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="collectie">
+        <xs:annotation>
+          <xs:documentation>Te gebruiken voor een reeks objecten die deel uitmaken van eenzelfde
+            verzameling (bijvoorbeeld een set archeologische objecten uit verschillende
+            opgravingen.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="interactionLevelTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="demonstratie">
+        <xs:annotation>
+          <xs:documentation>Het leerobject mag enkel worden getoond.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="manipulatie">
+        <xs:annotation>
+          <xs:documentation>Het leerobject mag worden gemanipuleerd.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="adaptatie">
+        <xs:annotation>
+          <xs:documentation>Het leerobject mag worden gewijzigd of bewerkt.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="destructie">
+        <xs:annotation>
+          <xs:documentation>Het leerobject mag worden gewijzigd of bewerkt voor destructief
+            onderzoek.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="">
+        <xs:annotation>
+          <xs:documentation>Het leerobject mag worden gewijzigd of bewerkt voor destructief
+            onderzoek.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="endUserRoleTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="student"/>
+      <xs:enumeration value="docent"/>
+      <xs:enumeration value="andere"/>
+      <xs:enumeration value=""/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
